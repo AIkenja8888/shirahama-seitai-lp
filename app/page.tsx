@@ -24,7 +24,7 @@ export default function Home() {
               <br />
               まだ諦めないでください。
               <br />
-              <span className="text-slate-950 underline decoration-[#073b68] decoration-4 underline-offset-8">慢性痛の最後の盾</span>として
+              <span className="text-[#073b68] underline decoration-[#073b68] decoration-4 underline-offset-8">慢性痛の最後の盾</span>として
               <br className="hidden md:block" />
               向き合います。
             </h1>
