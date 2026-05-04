@@ -26,7 +26,7 @@ export function Header() {
           <div className="min-w-0">
             <p className="truncate text-lg font-black text-[#073b68] sm:text-xl">白浜整体院</p>
             <p className="truncate text-xs font-bold text-slate-500 sm:text-sm">八戸市松ヶ丘｜慢性痛・姿勢改善</p>
-            <p className="truncate text-[11px] font-bold text-[#0b5f9e] sm:text-xs">〜症状が重い方も一度お試しください〜</p>
+            <p className="mt-1 truncate text-[11px] font-bold text-[#5f8caf] sm:text-xs">〜症状が重い方の施術が得意です〜</p>
           </div>
         </Link>
         <nav className="hidden items-center gap-2 text-sm font-bold lg:flex">
