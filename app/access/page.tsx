@@ -58,6 +58,21 @@ export default function AccessPage() {
           </div>
         </div>
       </section>
+
+      <section className="px-4 py-20 sm:px-6 md:py-28">
+        <div className="mx-auto max-w-6xl">
+          <SectionTitle label="MAP" title="Googleマップ" text="所在地を地図で確認できます。来院前の経路確認にご利用ください。" />
+          <div className="overflow-hidden rounded-2xl border border-blue-100 bg-white p-2 shadow-sm">
+            <iframe
+              title="白浜整体院 Googleマップ"
+              src="https://www.google.com/maps?q=%E3%80%92039-2243%20%E9%9D%92%E6%A3%AE%E7%9C%8C%E5%85%AB%E6%88%B8%E5%B8%82%E6%9D%BE%E3%83%B6%E4%B8%9811-8%20%E7%99%BD%E6%B5%9C%E6%95%B4%E4%BD%93%E9%99%A2&output=embed"
+              className="aspect-[4/3] w-full rounded-xl border-0 md:aspect-[16/9]"
+              loading="lazy"
+              referrerPolicy="no-referrer-when-downgrade"
+            />
+          </div>
+        </div>
+      </section>
     </SiteShell>
   );
 }

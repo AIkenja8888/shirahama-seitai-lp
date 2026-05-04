@@ -13,7 +13,7 @@ export default function Home() {
     <SiteShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <section className="overflow-hidden bg-gradient-to-b from-[#eef8ff] via-white to-white px-4 py-16 sm:px-6 md:py-24">
+      <section className="overflow-hidden bg-gradient-to-b from-[#dff1ff] via-[#f4fbff] to-white px-4 py-16 sm:px-6 md:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-10 md:grid-cols-[1.03fr_0.97fr]">
           <div>
             <img src={images.logo} alt="白浜整体院 ロゴ" className="mb-6 h-20 w-auto object-contain sm:h-24" />

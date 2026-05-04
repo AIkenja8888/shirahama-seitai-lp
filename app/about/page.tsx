@@ -13,7 +13,6 @@ export default function AboutPage() {
         label="ABOUT"
         title="痛みを知っているから、諦めかけた人に寄り添える。"
         text="院長自身が長年の腰痛、しびれ、スポーツによる痛みに悩み、整体に救われた経験があります。その体験が、白浜整体院の施術と想いの原点です。"
-        image={images.owner}
       />
 
       <section className="px-4 py-20 sm:px-6 md:py-28">

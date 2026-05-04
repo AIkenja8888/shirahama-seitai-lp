@@ -30,9 +30,9 @@ export function Header() {
         </div>
       </div>
       <div className="border-t border-blue-50 bg-white px-4 py-2 lg:hidden">
-        <nav className="mx-auto flex max-w-7xl gap-2 overflow-x-auto text-xs font-bold text-slate-600">
+        <nav className="mx-auto flex max-w-7xl flex-wrap gap-2 text-xs font-bold text-slate-600">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="shrink-0 rounded-full bg-blue-50 px-3 py-2 text-[#073b68]">
+            <Link key={item.href} href={item.href} className="rounded-full bg-blue-50 px-3 py-2 text-[#073b68]">
               {item.label}
             </Link>
           ))}
@@ -105,7 +105,7 @@ export function SectionTitle({ label, title, text }: { label: string; title: str
 
 export function PageHero({ label, title, text, image }: { label: string; title: string; text: string; image?: string }) {
   return (
-    <section className="bg-gradient-to-b from-[#eef8ff] via-white to-white px-4 py-16 sm:px-6 md:py-24">
+    <section className="bg-gradient-to-b from-[#dff1ff] via-[#f4fbff] to-white px-4 py-16 sm:px-6 md:py-24">
       <div className="mx-auto grid max-w-7xl items-center gap-8 md:grid-cols-[1fr_0.86fr]">
         <div>
           <img src={images.logo} alt="白浜整体院 ロゴ" className="mb-6 h-20 w-auto object-contain sm:h-24" />
