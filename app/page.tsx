@@ -16,7 +16,6 @@ export default function Home() {
       <section className="overflow-hidden bg-gradient-to-b from-[#dff1ff] via-[#f4fbff] to-white px-4 py-16 sm:px-6 md:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-10 md:grid-cols-[1.03fr_0.97fr]">
           <div>
-            <img src={images.logo} alt="白浜整体院 ロゴ" className="mb-6 h-20 w-auto object-contain sm:h-24" />
             <p className="mb-4 inline-flex rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-bold text-[#0b5f9e] shadow-sm">
               青森県八戸市松ヶ丘｜完全予約制・駐車場あり
             </p>
@@ -97,7 +96,7 @@ export default function Home() {
           <SectionTitle label="SYMPTOMS" title="症状別メニュー" text="肩こり・腰痛だけでなく、姿勢の歪みや長年の慢性痛にも対応します。" />
           <div className="grid gap-5 md:grid-cols-3">
             {symptomGroups.map((group) => (
-              <article key={group.name} className="rounded-2xl border border-blue-100 bg-white p-6 shadow-sm">
+              <article key={group.name} className="rounded-2xl border border-blue-100 bg-[#f8fbff] p-6 shadow-sm">
                 <h3 className="text-xl font-black text-[#073b68]">{group.name}</h3>
                 <p className="mt-3 leading-8 text-slate-600">{group.summary}</p>
                 <p className="mt-4 text-sm font-bold text-slate-500">{group.items.join(" / ")}</p>

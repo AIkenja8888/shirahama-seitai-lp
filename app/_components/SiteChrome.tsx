@@ -13,9 +13,15 @@ export function Header() {
             <p className="truncate text-xs font-bold text-slate-500 sm:text-sm">八戸市松ヶ丘｜慢性痛・姿勢改善</p>
           </div>
         </Link>
-        <nav className="hidden items-center gap-4 text-sm font-bold text-slate-600 lg:flex">
+        <nav className="hidden items-center gap-2 text-sm font-bold lg:flex">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="transition hover:text-[#0b5f9e]">
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`rounded-full bg-[#073b68] px-3 py-2 text-white transition hover:bg-[#0b5f9e] ${
+                item.href === "/symptoms" ? "font-black underline underline-offset-4" : ""
+              }`}
+            >
               {item.label}
             </Link>
           ))}
@@ -30,9 +36,15 @@ export function Header() {
         </div>
       </div>
       <div className="border-t border-blue-50 bg-white px-4 py-2 lg:hidden">
-        <nav className="mx-auto flex max-w-7xl flex-wrap gap-2 text-xs font-bold text-slate-600">
+        <nav className="mx-auto flex max-w-7xl gap-2 overflow-x-auto text-xs font-bold">
           {navItems.map((item) => (
-            <Link key={item.href} href={item.href} className="rounded-full bg-blue-50 px-3 py-2 text-[#073b68]">
+            <Link
+              key={item.href}
+              href={item.href}
+              className={`shrink-0 rounded-full bg-[#073b68] px-3 py-2 text-white ${
+                item.href === "/symptoms" ? "font-black underline underline-offset-4" : ""
+              }`}
+            >
               {item.label}
             </Link>
           ))}
@@ -108,8 +120,6 @@ export function PageHero({ label, title, text, image }: { label: string; title: 
     <section className="bg-gradient-to-b from-[#dff1ff] via-[#f4fbff] to-white px-4 py-16 sm:px-6 md:py-24">
       <div className="mx-auto grid max-w-7xl items-center gap-8 md:grid-cols-[1fr_0.86fr]">
         <div>
-          <img src={images.logo} alt="白浜整体院 ロゴ" className="mb-6 h-20 w-auto object-contain sm:h-24" />
-          <p className="mb-4 inline-flex rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-bold text-[#0b5f9e] shadow-sm">{label}</p>
           <h1 className="text-3xl font-black leading-[1.45] text-slate-950 sm:text-4xl md:text-5xl">{title}</h1>
           <p className="mt-5 max-w-2xl text-base leading-8 text-slate-700 sm:text-lg">{text}</p>
           <div className="mt-7">
