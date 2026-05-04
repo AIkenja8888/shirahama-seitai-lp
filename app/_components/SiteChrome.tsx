@@ -5,9 +5,9 @@ import { accessInfo, hotpepperUrl, images, navItems, phoneNumber } from "@/app/_
 export function Header() {
   return (
     <header className="sticky top-0 z-40 border-b border-blue-100 bg-white/95 shadow-sm backdrop-blur">
-      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-3 sm:px-6">
+      <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
         <Link href="/" className="flex min-w-0 items-center gap-3">
-          <img src={images.logo} alt="白浜整体院 ロゴ" className="h-16 w-auto shrink-0 object-contain sm:h-20" />
+          <img src={images.logo} alt="白浜整体院 ロゴ" className="h-20 w-auto shrink-0 object-contain sm:h-24 lg:h-28" />
           <div className="min-w-0">
             <p className="truncate text-lg font-black text-[#073b68] sm:text-xl">白浜整体院</p>
             <p className="truncate text-xs font-bold text-slate-500 sm:text-sm">八戸市松ヶ丘｜慢性痛・姿勢改善</p>
@@ -105,10 +105,10 @@ export function SectionTitle({ label, title, text }: { label: string; title: str
 
 export function PageHero({ label, title, text, image }: { label: string; title: string; text: string; image?: string }) {
   return (
-    <section className="bg-gradient-to-b from-[#eef8ff] via-white to-white px-4 py-14 sm:px-6 md:py-20">
+    <section className="bg-gradient-to-b from-[#eef8ff] via-white to-white px-4 py-16 sm:px-6 md:py-24">
       <div className="mx-auto grid max-w-7xl items-center gap-8 md:grid-cols-[1fr_0.86fr]">
         <div>
-          <img src={images.logo} alt="白浜整体院 ロゴ" className="mb-5 h-14 w-auto object-contain sm:h-16" />
+          <img src={images.logo} alt="白浜整体院 ロゴ" className="mb-6 h-20 w-auto object-contain sm:h-24" />
           <p className="mb-4 inline-flex rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-bold text-[#0b5f9e] shadow-sm">{label}</p>
           <h1 className="text-3xl font-black leading-[1.45] text-slate-950 sm:text-4xl md:text-5xl">{title}</h1>
           <p className="mt-5 max-w-2xl text-base leading-8 text-slate-700 sm:text-lg">{text}</p>
@@ -118,7 +118,7 @@ export function PageHero({ label, title, text, image }: { label: string; title: 
         </div>
         {image ? (
           <div className="rounded-2xl border border-blue-100 bg-white p-2 shadow-sm">
-            <img src={image} alt="" className="aspect-[4/3] w-full rounded-xl object-cover brightness-95 contrast-105" />
+            <img src={image} alt="" className="aspect-[4/3] h-auto w-full rounded-xl object-cover brightness-95 contrast-105" />
           </div>
         ) : null}
       </div>
@@ -128,9 +128,9 @@ export function PageHero({ label, title, text, image }: { label: string; title: 
 
 export function CTASection() {
   return (
-    <section className="px-4 py-16 sm:px-6 md:py-24">
+    <section className="px-4 py-20 sm:px-6 md:py-28">
       <div className="mx-auto max-w-5xl rounded-2xl border border-[#0b5f9e]/20 bg-[#073b68] p-8 text-center text-white shadow-sm md:p-12">
-        <img src={images.logo} alt="白浜整体院 ロゴ" className="mx-auto mb-5 h-14 w-auto object-contain" />
+        <img src={images.logo} alt="白浜整体院 ロゴ" className="mx-auto mb-5 h-20 w-auto object-contain" />
         <p className="text-sm font-bold tracking-[0.22em] text-blue-100">RESERVATION</p>
         <h2 className="mt-3 text-2xl font-black leading-relaxed md:text-4xl">つらい慢性痛を、もう一度本気で整えたい方へ</h2>
         <p className="mx-auto mt-4 max-w-2xl leading-8 text-blue-50">電話でのご相談も、ホットペッパーからの24時間ネット予約も可能です。初めての方も安心してご予約ください。</p>

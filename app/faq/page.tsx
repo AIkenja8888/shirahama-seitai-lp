@@ -1,5 +1,5 @@
 import { PageHero, SectionTitle, SiteShell } from "@/app/_components/SiteChrome";
-import { faqs, images } from "@/app/_lib/site";
+import { faqs, images, infectionMeasures } from "@/app/_lib/site";
 
 export const metadata = {
   title: "よくある質問｜白浜整体院",
@@ -20,6 +20,19 @@ export default function FaqPage() {
                 <summary className="cursor-pointer text-lg font-black text-slate-950">{faq.q}</summary>
                 <p className="mt-3 leading-8 text-slate-600">{faq.a}</p>
               </details>
+            ))}
+          </div>
+        </div>
+      </section>
+
+      <section className="bg-[#f8fbff] px-4 py-20 sm:px-6 md:py-28">
+        <div className="mx-auto max-w-6xl">
+          <SectionTitle label="HYGIENE" title="感染症対策と院内環境" text="安心して施術を受けていただけるよう、清潔で居心地のいい空間づくりを行っています。" />
+          <div className="grid gap-4 sm:grid-cols-2 lg:grid-cols-5">
+            {infectionMeasures.map((item) => (
+              <div key={item} className="rounded-2xl border border-blue-100 bg-white p-5 text-center font-bold leading-7 text-[#073b68] shadow-sm">
+                {item}
+              </div>
             ))}
           </div>
         </div>

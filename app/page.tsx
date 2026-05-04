@@ -13,10 +13,10 @@ export default function Home() {
     <SiteShell>
       <script type="application/ld+json" dangerouslySetInnerHTML={{ __html: JSON.stringify(jsonLd) }} />
 
-      <section className="overflow-hidden bg-gradient-to-b from-[#eef8ff] via-white to-white px-4 py-12 sm:px-6 md:py-20">
+      <section className="overflow-hidden bg-gradient-to-b from-[#eef8ff] via-white to-white px-4 py-16 sm:px-6 md:py-24">
         <div className="mx-auto grid max-w-7xl items-center gap-10 md:grid-cols-[1.03fr_0.97fr]">
           <div>
-            <img src={images.logo} alt="白浜整体院 ロゴ" className="mb-5 h-16 w-auto object-contain sm:h-20" />
+            <img src={images.logo} alt="白浜整体院 ロゴ" className="mb-6 h-20 w-auto object-contain sm:h-24" />
             <p className="mb-4 inline-flex rounded-full border border-blue-100 bg-white px-4 py-2 text-sm font-bold text-[#0b5f9e] shadow-sm">
               青森県八戸市松ヶ丘｜完全予約制・駐車場あり
             </p>
@@ -37,7 +37,7 @@ export default function Home() {
             </div>
           </div>
           <div className="rounded-2xl border border-blue-100 bg-white p-2 shadow-sm">
-            <img src={images.hero} alt="白浜整体院の施術イメージ" className="aspect-[4/3] w-full rounded-xl object-cover brightness-95 contrast-105" />
+            <img src={images.hero} alt="白浜整体院の施術イメージ" className="aspect-[4/3] h-auto w-full rounded-xl object-cover brightness-95 contrast-105" />
           </div>
         </div>
       </section>
