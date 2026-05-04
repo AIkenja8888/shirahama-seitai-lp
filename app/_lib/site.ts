@@ -15,12 +15,12 @@ export const images = {
 
 export const navItems = [
   { href: "/", label: "トップ" },
-  { href: "/concept", label: "理念" },
-  { href: "/symptoms", label: "症状について" },
+  { href: "/symptoms", label: "症状" },
   { href: "/menu", label: "料金" },
-  { href: "/about", label: "院長より" },
-  { href: "/faq", label: "FAQ" },
   { href: "/access", label: "アクセス" },
+  { href: "/faq", label: "FAQ" },
+  { href: "/concept", label: "理念" },
+  { href: "/about", label: "院長より" },
 ];
 
 export const trustItems = [

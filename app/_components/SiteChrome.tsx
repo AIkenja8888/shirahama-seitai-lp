@@ -1,8 +1,23 @@
+"use client";
+
 import Link from "next/link";
 import type { ReactNode } from "react";
+import { useState } from "react";
+import { usePathname } from "next/navigation";
 import { accessInfo, hotpepperUrl, images, navItems, phoneNumber } from "@/app/_lib/site";
 
 export function Header() {
+  const pathname = usePathname();
+
+  const navClassName = (href: string) => {
+    const isActive = href === "/" ? pathname === "/" : pathname === href;
+    const symptomEmphasis = href === "/symptoms" ? "font-black underline underline-offset-4" : "";
+
+    return `shrink-0 rounded-full px-3 py-2 transition ${symptomEmphasis} ${
+      isActive ? "bg-[#073b68] text-white hover:bg-[#0b5f9e]" : "bg-blue-50 text-[#073b68] hover:bg-blue-100"
+    }`;
+  };
+
   return (
     <header className="sticky top-0 z-40 border-b border-blue-100 bg-white/95 shadow-sm backdrop-blur">
       <div className="mx-auto flex max-w-7xl items-center justify-between gap-4 px-4 py-4 sm:px-6">
@@ -15,13 +30,7 @@ export function Header() {
         </Link>
         <nav className="hidden items-center gap-2 text-sm font-bold lg:flex">
           {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`rounded-full bg-[#073b68] px-3 py-2 text-white transition hover:bg-[#0b5f9e] ${
-                item.href === "/symptoms" ? "font-black underline underline-offset-4" : ""
-              }`}
-            >
+            <Link key={item.href} href={item.href} className={navClassName(item.href)}>
               {item.label}
             </Link>
           ))}
@@ -38,13 +47,7 @@ export function Header() {
       <div className="border-t border-blue-50 bg-white px-4 py-2 lg:hidden">
         <nav className="mx-auto flex max-w-7xl gap-2 overflow-x-auto text-xs font-bold">
           {navItems.map((item) => (
-            <Link
-              key={item.href}
-              href={item.href}
-              className={`shrink-0 rounded-full bg-[#073b68] px-3 py-2 text-white ${
-                item.href === "/symptoms" ? "font-black underline underline-offset-4" : ""
-              }`}
-            >
+            <Link key={item.href} href={item.href} className={navClassName(item.href)}>
               {item.label}
             </Link>
           ))}
@@ -62,6 +65,12 @@ export function Footer() {
       <p className="mt-1">
         〒{accessInfo.postalCode} {accessInfo.address} ｜ TEL：{phoneNumber}
       </p>
+      <div className="mx-auto mt-4 max-w-xl leading-7">
+        <p className="font-bold text-[#073b68]">営業時間および定休日</p>
+        <p>月・火・金・土・日 ：9時～12時、14時～19時</p>
+        <p>（最終予約は19時開始です。時間外の場合はご相談ください）</p>
+        <p>水・木：定休日</p>
+      </div>
       <p className="mt-2">© Shirahama Seitaiin</p>
     </footer>
   );
@@ -120,7 +129,7 @@ export function PageHero({ label, title, text, image }: { label: string; title: 
     <section className="bg-gradient-to-b from-[#dff1ff] via-[#f4fbff] to-white px-4 py-16 sm:px-6 md:py-24">
       <div className="mx-auto grid max-w-7xl items-center gap-8 md:grid-cols-[1fr_0.86fr]">
         <div>
-          <h1 className="text-3xl font-black leading-[1.45] text-slate-950 sm:text-4xl md:text-5xl">{title}</h1>
+          <h1 className="text-3xl font-black leading-[1.45] text-[#073b68] sm:text-4xl md:text-5xl">{title}</h1>
           <p className="mt-5 max-w-2xl text-base leading-8 text-slate-700 sm:text-lg">{text}</p>
           <div className="mt-7">
             <CTAButtonGroup />
@@ -137,6 +146,9 @@ export function PageHero({ label, title, text, image }: { label: string; title: 
 }
 
 export function CTASection() {
+  const [isMailOpen, setIsMailOpen] = useState(false);
+  const [isPolicyOpen, setIsPolicyOpen] = useState(false);
+
   return (
     <section className="px-4 py-20 sm:px-6 md:py-28">
       <div className="mx-auto max-w-5xl rounded-2xl border border-[#0b5f9e]/20 bg-[#073b68] p-8 text-center text-white shadow-sm md:p-12">
@@ -147,8 +159,115 @@ export function CTASection() {
         <div className="mt-7 flex justify-center">
           <CTAButtonGroup dark />
         </div>
+        <button
+          type="button"
+          onClick={() => setIsMailOpen(true)}
+          className="mt-4 inline-flex rounded-full border border-white/50 px-6 py-4 text-base font-bold text-white transition hover:bg-white/10"
+        >
+          メールで相談する
+        </button>
       </div>
+      <MailConsultModal isOpen={isMailOpen} onClose={() => setIsMailOpen(false)} onPolicyOpen={() => setIsPolicyOpen(true)} />
+      <PrivacyPolicyModal isOpen={isPolicyOpen} onClose={() => setIsPolicyOpen(false)} />
     </section>
+  );
+}
+
+function MailConsultModal({ isOpen, onClose, onPolicyOpen }: { isOpen: boolean; onClose: () => void; onPolicyOpen: () => void }) {
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-[80] overflow-y-auto bg-slate-950/55 px-4 py-8">
+      <div className="mx-auto max-w-2xl rounded-2xl bg-white p-6 text-left shadow-xl md:p-8">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <p className="text-sm font-black tracking-[0.18em] text-[#0b5f9e]">MAIL</p>
+            <h2 className="mt-2 text-2xl font-black text-[#073b68]">ご予約・お問い合わせ（メール）</h2>
+          </div>
+          <button type="button" onClick={onClose} className="rounded-full bg-blue-50 px-4 py-2 text-sm font-bold text-[#073b68]">
+            閉じる
+          </button>
+        </div>
+
+        <form
+          className="mt-6 space-y-4"
+          onSubmit={(event) => {
+            event.preventDefault();
+            alert("送信内容を確認しました。実際のメール送信先が設定されていないため、送信機能の接続が必要です。");
+          }}
+        >
+          {[
+            ["お名前", "text", "name"],
+            ["メールアドレス", "email", "email"],
+            ["電話番号", "tel", "tel"],
+          ].map(([label, type, name]) => (
+            <label key={name} className="block">
+              <span className="text-sm font-bold text-slate-700">{label}</span>
+              <input name={name} type={type} className="mt-2 w-full rounded-2xl border border-blue-100 bg-[#f8fbff] px-4 py-3 text-slate-900 outline-none focus:border-[#0b5f9e]" />
+            </label>
+          ))}
+
+          <label className="block">
+            <span className="text-sm font-bold text-slate-700">メッセージ</span>
+            <textarea name="message" rows={5} className="mt-2 w-full rounded-2xl border border-blue-100 bg-[#f8fbff] px-4 py-3 text-slate-900 outline-none focus:border-[#0b5f9e]" />
+          </label>
+
+          <label className="flex gap-3 rounded-2xl border border-blue-100 bg-blue-50 p-4 text-sm leading-7 text-slate-700">
+            <input type="checkbox" required className="mt-1 h-4 w-4 shrink-0" />
+            <span>
+              このフォームの「送信」ボタンを押すことで、入力された個人情報が、お問い合わせ対応および個別のご案内の目的で利用されることに同意します。なお、この同意は、メール等の連絡によりいつでも撤回することができます。
+              <br />
+              <button type="button" onClick={onPolicyOpen} className="font-black text-[#0b5f9e] underline underline-offset-4">
+                プライバシーポリシー
+              </button>
+              を読み同意します。
+            </span>
+          </label>
+
+          <button type="submit" className="w-full rounded-full bg-[#0b5f9e] px-6 py-4 text-center font-bold text-white transition hover:bg-[#084f86]">
+            送信
+          </button>
+        </form>
+      </div>
+    </div>
+  );
+}
+
+function PrivacyPolicyModal({ isOpen, onClose }: { isOpen: boolean; onClose: () => void }) {
+  if (!isOpen) return null;
+
+  return (
+    <div className="fixed inset-0 z-[90] overflow-y-auto bg-slate-950/60 px-4 py-8">
+      <div className="mx-auto max-w-3xl rounded-2xl bg-white p-6 text-left shadow-xl md:p-8">
+        <div className="flex items-start justify-between gap-4">
+          <div>
+            <p className="text-sm font-black tracking-[0.18em] text-[#0b5f9e]">PRIVACY POLICY</p>
+            <h2 className="mt-2 text-2xl font-black text-[#073b68]">プライバシーポリシー</h2>
+          </div>
+          <button type="button" onClick={onClose} className="rounded-full bg-blue-50 px-4 py-2 text-sm font-bold text-[#073b68]">
+            閉じる
+          </button>
+        </div>
+        <div className="mt-6 space-y-5 leading-8 text-slate-700">
+          <section>
+            <h3 className="font-black text-slate-950">個人情報の取得</h3>
+            <p>白浜整体院は、お問い合わせやご予約対応に必要な範囲で、お名前、メールアドレス、電話番号、メッセージ内容などの個人情報を取得します。</p>
+          </section>
+          <section>
+            <h3 className="font-black text-slate-950">利用目的</h3>
+            <p>取得した個人情報は、お問い合わせへの回答、予約確認、個別のご案内、サービス改善のために利用します。目的外で利用する場合は、事前に同意を得ます。</p>
+          </section>
+          <section>
+            <h3 className="font-black text-slate-950">第三者提供</h3>
+            <p>法令に基づく場合を除き、ご本人の同意なく第三者へ個人情報を提供しません。</p>
+          </section>
+          <section>
+            <h3 className="font-black text-slate-950">安全管理とお問い合わせ</h3>
+            <p>個人情報は適切に管理し、漏えい、紛失、改ざんの防止に努めます。個人情報の確認、訂正、利用停止、同意撤回をご希望の場合は、メール等でご連絡ください。</p>
+          </section>
+        </div>
+      </div>
+    </div>
   );
 }
 
