@@ -45,20 +45,6 @@ export default function MenuPage() {
               </article>
             ))}
           </div>
-          <div className="mt-6 rounded-2xl border border-blue-100 bg-white p-6 shadow-sm">
-            <p className="text-sm font-black tracking-[0.18em] text-[#0b5f9e]">NOTE</p>
-            <h2 className="mt-2 text-xl font-black text-[#073b68]">注意書き</h2>
-            <div className="mt-4 space-y-3 leading-8 text-slate-700">
-              <p>
-                <span className="font-black text-slate-950">＜オプション＞</span>
-                上記1〜3の全コースに追加可能です。頭部すっきりオプション 10分（税込 1,000円）は、精神的なストレス、頭部のコリ・むくみ、眼精疲労、食いしばりの筋肉疲労などの症状がある方におすすめです。
-              </p>
-              <p>
-                <span className="font-black text-slate-950">出張料金：</span>
-                施術料＋税込2,000円。重度のギックリ腰など、ご来院が困難な場合に限り青森県八戸市内限定で出張します。営業時間外でも可能な限り対応させていただきますので、ご遠慮なくご相談ください。
-              </p>
-            </div>
-          </div>
         </div>
       </section>
 
